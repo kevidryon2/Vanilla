@@ -10,35 +10,34 @@
 
 #define ASSET_LOADED SIGRTMIN
 #define FINISHED_LOADING (SIGRTMIN+1)
+#define SWITCH_TO_CHILD (SIGRTMIN+2)
 
 int curr_asset = 0;
 char *username;
 
-void loadAssets() {
+FILE *loadAssetFile() {
   struct passwd *pw = getpwuid(getuid());
   if (!pw) {
     printf("Can't get PWUID\n");
     kill(getppid(), SIGTERM);
     exit(1);
   }
-       
   username = pw->pw_dir;
-  printf("%s/.local/share/pictrel/vanilla\n", username);
   
-  FILE *fp = fopen(TextFormat("%s/.local/share/pictrel/vanilla/vanilla.krp", username), "r");
+  //printf("%s/.local/share/pictrel/vanilla\n", username);
+  return fopen(TextFormat("%s/.local/share/pictrel/vanilla/vanilla.krp", username), "r");
+}
+
+void loadAssets() {
+  FILE *fp = loadAssetFile();
   
   if (!fp) {
     printf("Assets file (%s/.local/share/pictrel/vanilla/vanilla.krp) is missing", username);
     perror("");
-    kill(getppid(), SIGTERM);
     exit(1);
   }
 	
   for (int i=0; i<NUM_ASSETS; i++) {
     loadAsset(i, fp);
-    printf("Sending signal to main process\n");
-		kill(getppid(), SIGRTMIN);
-    printf("Sent signal to main process\n");
 	}
-	kill(getppid(), SIGRTMIN+1);
 }

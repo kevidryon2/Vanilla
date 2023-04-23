@@ -5,9 +5,10 @@
 #include "raylib.h"
 
 #pragma once
-#define NUM_ASSETS 2
+#define NUM_ASSETS 3
 
 Texture pictrelLogo;
+Texture vanillaLogo;
 
 struct {
   void *dest;
@@ -19,6 +20,8 @@ struct {
 } assetdata[] = {
     {0, TYPE_TEXT},
     {&pictrelLogo, TYPE_PNG_TEXTURE},
+    {&vanillaLogo, TYPE_PNG_TEXTURE},
+  
 };
 
 void loadAsset(int n, FILE *fp) {
@@ -47,9 +50,9 @@ void loadAsset(int n, FILE *fp) {
         break;
     }
   }
-  for (int i=0; i<dlen; i++) {
+  /*for (int i=0; i<dlen; i++) {
     if (!(i%12)) puts("");
     printf("%02x ", (unsigned)data[i]);
-  }
+  }*/
   
 }

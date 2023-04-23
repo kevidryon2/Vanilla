@@ -8,13 +8,10 @@ typedef enum {
 extern VanillaState state;
 extern int curr_asset;
 
-void introinit();
-
 void switchState(VanillaState st) {
 	state = st;
 	switch (state) {
-	case STATE_INTRO:
-		introinit();
-		break;
+    case STATE_INTRO: introinit(); break;
+    case STATE_MAINMENU: mainmenuinit(); break;
 	}
 }

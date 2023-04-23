@@ -4,15 +4,10 @@
 #include "intro.h"
 #include "crash.h"
 
-void intro();
-void mainmenu();
-void segfault();
-
 VanillaState state;
 int t = 0;
 
 int main() {
-	signal(SIGSEGV, segfault);
 	InitWindow(640,480,"Vanilla");
 	ToggleFullscreen();
 	SetTargetFPS(60);
@@ -21,6 +16,7 @@ int main() {
 		BeginDrawing();
 		switch (state) {
 			case STATE_INTRO: intro(); break;
+			case STATE_MAINMENU: mainMenu(); break;
 		}
 		t++;
 		EndDrawing();
