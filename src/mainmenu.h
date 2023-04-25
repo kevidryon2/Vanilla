@@ -25,8 +25,11 @@ void mainMenu() {
                           256,
                           72
                         },
+                        true,
                         "Editor",
                         LIGHTGRAY,
+                        WHITE,
+                        5,
                         openeditor
                       }, MOUSE_BUTTON_LEFT);
   drawButtonCallback((Button){
@@ -36,8 +39,11 @@ void mainMenu() {
                           256,
                           72
                         },
+                        true,
                         "Quit",
                         LIGHTGRAY,
+                        WHITE,
+                        5,
                         exit
                       }, MOUSE_BUTTON_LEFT);
 }

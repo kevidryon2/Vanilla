@@ -20,6 +20,7 @@ int main() {
 			case STATE_INTRO: intro(); break;
 			case STATE_MAINMENU: mainMenu(); break;
 			case STATE_EDITOR: editor(); break;
+			case STATE_SELECT_EDITOR: selecteditor(); break;
 		}
 		t++;
 		EndDrawing();

@@ -3,7 +3,7 @@ VANILLAPATH = /home/kevidryon2/.local/share/pictrel/vanilla
 all: clean run
 
 build/%t: tools/%.c
-	clang -g -o $@ $< -lraylib
+	gcc -g -o $@ $< -lraylib
 
 clean:
 	rm -f build/*

@@ -4,6 +4,7 @@ typedef enum {
   STATE_INTRO,
   STATE_MAINMENU,
   STATE_EDITOR,
+  STATE_SELECT_EDITOR,
   STATE_MAX,
 } VanillaState;
 
@@ -34,5 +35,6 @@ void switchState(VanillaState st) {
 	switch (state) {
     case STATE_INTRO: introinit(); break;
     case STATE_MAINMENU: mainmenuinit(); break;
+    case STATE_SELECT_EDITOR: selectinit(); break;
 	}
 }
