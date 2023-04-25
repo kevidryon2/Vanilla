@@ -5,23 +5,43 @@
 #include "raylib.h"
 
 #pragma once
-#define NUM_ASSETS 3
+#define NUM_ASSETS 12
 
 Texture pictrelLogo;
 Texture vanillaLogo;
+
+Font mono_bold;
+Font mono_italic;
+Font mono_light;
+Font mono_medium;
+Font mono_regular;
+
+Font normal_bold;
+Font normal_italic;
+Font normal_light;
+Font normal_regular;
 
 struct {
   void *dest;
   enum {
     TYPE_TEXT,
     TYPE_PNG_TEXTURE,
-    TYPE_FONT
+    TYPE_TTF_FONT
   } type;
 } assetdata[] = {
-    {0, TYPE_TEXT},
     {&pictrelLogo, TYPE_PNG_TEXTURE},
-    {&vanillaLogo, TYPE_PNG_TEXTURE},
+    {&mono_bold, TYPE_TTF_FONT},
+    {&mono_italic, TYPE_TTF_FONT},
+    {&mono_light, TYPE_TTF_FONT},
+    {&mono_medium, TYPE_TTF_FONT},
+    {&mono_regular, TYPE_TTF_FONT},
   
+    {&normal_bold, TYPE_TTF_FONT},
+    {&normal_italic, TYPE_TTF_FONT},
+    {&normal_light, TYPE_TTF_FONT},
+    {&normal_regular, TYPE_TTF_FONT},
+    {&vanillaLogo, TYPE_PNG_TEXTURE},
+    {NULL, TYPE_TEXT}
 };
 
 void loadAsset(int n, FILE *fp) {
@@ -47,6 +67,9 @@ void loadAsset(int n, FILE *fp) {
     switch (assetdata[n].type) {
       case TYPE_PNG_TEXTURE:
         *(Texture*)assetdata[n].dest = LoadTextureFromImage(LoadImageFromMemory(".png", data, dlen));
+        break;
+      case TYPE_TTF_FONT:
+        *(Font*)assetdata[n].dest = LoadFontFromMemory(".ttf", data, dlen, 100, 0, 200);
         break;
     }
   }

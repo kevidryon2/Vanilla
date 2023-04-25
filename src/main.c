@@ -3,12 +3,14 @@
 #include <signal.h>
 #include "intro.h"
 #include "crash.h"
+#include "editor.h"
 
 VanillaState state;
 int t = 0;
 
 int main() {
 	InitWindow(640,480,"Vanilla");
+	loadAssets();
 	ToggleFullscreen();
 	SetTargetFPS(60);
 	switchState(STATE_INTRO);

@@ -16,14 +16,13 @@ extern int t;
 extern int curr_asset;
 
 void introinit() {
-  loadAssets();
 }
 
 void intro() {
 	ClearBackground((Color){
-						(sin((float)t/(PICTREL_LOGO_DUR/PI))+1)*16,
-						(sin((float)t/(PICTREL_LOGO_DUR/PI))+1)*16,
-						(sin((float)t/(PICTREL_LOGO_DUR/PI))+1)*16,
+						(sin((float)t/(PICTREL_LOGO_DUR))+1)*16,
+						(sin((float)t/(PICTREL_LOGO_DUR))+1)*16,
+						(sin((float)t/(PICTREL_LOGO_DUR))+1)*16,
 						255
 					});
 	if (t<PICTREL_LOGO_DUR) {
