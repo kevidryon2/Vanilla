@@ -19,6 +19,7 @@ int main() {
 		switch (state) {
 			case STATE_INTRO: intro(); break;
 			case STATE_MAINMENU: mainMenu(); break;
+			case STATE_EDITOR: editor(); break;
 		}
 		t++;
 		EndDrawing();
