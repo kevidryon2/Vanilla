@@ -3,7 +3,7 @@
 #include <signal.h>
 #include "intro.h"
 #include "crash.h"
-#include "editor.h"
+#include "editor/editor.h"
 
 VanillaState state;
 int t = 0;

@@ -1,9 +1,15 @@
 #include "raylib.h"
-#include "states.h"
-#include "elements.h"
-#include "assets.h"
-#include "shared.h"
-#include "buttons.h"
+#include "../states.h"
+#include "../elements.h"
+#include "../assets.h"
+#include "../shared.h"
+#include "../buttons.h"
+#include "code.h"
+#include "data.h"
+#include "draw.h"
+#include "sound.h"
+#include "shape.h"
+#include "play/play.h"
 
 #define TILESIZE 64
 #define TILEWIDTH (GetRenderWidth()/TILESIZE)
@@ -23,6 +29,7 @@ float zoom = 1;
 int sx = 0;
 int sy = 0;
 
+
 void editor() {
   ClearBackground(BLACK);
   printf("%d\n", (int)((float)TILEWIDTH/zoom)+sx+1);
@@ -33,7 +40,7 @@ void editor() {
       DrawRectangleLinesEx((Rectangle){x*TILESIZE*zoom, y*TILESIZE*zoom,
                                         TILESIZE*zoom+1, TILESIZE*zoom+1}, 1, DARKGRAY);
       DrawRectangle(x*TILESIZE*zoom, y*TILESIZE*zoom, TILESIZE*zoom, TILESIZE*zoom,
-                    grid[x+y*256]<6?element_colors[grid[x+y*256]]:PINK);
+                    grid[x+y*256]<6?elementconstants[grid[x+y*256]].color:PINK);
     }
   }
   
@@ -71,10 +78,10 @@ void selecteditor() {
                        },
                        false,
                        "a",
-                       element_colors[i],
+                       elementconstants[i].color,
                        BLACK,
                        0,
-                       NULL
+                       elementconstants[i].openfunction
     }, MOUSE_BUTTON_LEFT);
   }
   

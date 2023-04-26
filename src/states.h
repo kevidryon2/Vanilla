@@ -5,6 +5,18 @@ typedef enum {
   STATE_MAINMENU,
   STATE_EDITOR,
   STATE_SELECT_EDITOR,
+  STATE_CODE_MENU,
+  STATE_CODE_EDITOR,
+  STATE_DATA_MENU,
+  STATE_DATA_EDITOR,
+  STATE_DRAW_MENU,
+  STATE_DRAW_EDITOR,
+  STATE_SOUND_MENU,
+  STATE_SOUND_EDITOR,
+  STATE_MUSIC_EDITOR,
+  STATE_SHAPE_MENU,
+  STATE_SHAPE_EDITOR,
+  STATE_PLAY,
   STATE_MAX,
 } VanillaState;
 
@@ -36,5 +48,11 @@ void switchState(VanillaState st) {
     case STATE_INTRO: introinit(); break;
     case STATE_MAINMENU: mainmenuinit(); break;
     case STATE_SELECT_EDITOR: selectinit(); break;
+    case STATE_CODE_MENU: code(); break;
+    case STATE_DATA_MENU: data(); break;
+    case STATE_DRAW_MENU: draw(); break;
+    case STATE_SOUND_MENU: sound(); break;
+    case STATE_SHAPE_MENU: shape(); break;
+    case STATE_PLAY: execgame(); break;
 	}
 }
