@@ -11,14 +11,6 @@
 #include "shape.h"
 #include "play/play.h"
 
-#define TILESIZE 64
-#define TILEWIDTH (GetRenderWidth()/TILESIZE)
-
-#define TILEMOUSEX ((int)(GetMouseX()/(TILESIZE*zoom)))
-#define TILEMOUSEY ((int)(GetMouseY()/(TILESIZE*zoom)))
-
-#define HOVEREDTILE (grid[TILEMOUSEX+TILEMOUSEY*256])
-
 extern int t;
 
 int grid[256*256];

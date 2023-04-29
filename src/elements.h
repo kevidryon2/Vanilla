@@ -15,11 +15,11 @@ typedef enum {
 
 extern Vector2 mousepos;
 
-void opencodeeditor()   {sp0=&mousepos;switchState(STATE_CODE_EDITOR);}
-void opendataeditor()   {sp0=&mousepos;switchState(STATE_DATA_EDITOR);}
-void opendraweditor()   {sp0=&mousepos;switchState(STATE_DRAW_EDITOR);}
-void opensoundeditor()  {sp0=&mousepos;switchState(STATE_SOUND_EDITOR);}
-void openshapeeditor()  {sp0=&mousepos;switchState(STATE_SHAPE_EDITOR);}
+void opencodeeditor()   {sp0=&mousepos;switchState(STATE_CODE_MENU);}
+void opendataeditor()   {sp0=&mousepos;switchState(STATE_DATA_MENU);}
+void opendraweditor()   {sp0=&mousepos;switchState(STATE_DRAW_MENU);}
+void opensoundeditor()  {sp0=&mousepos;switchState(STATE_SOUND_MENU);}
+void openshapeeditor()  {sp0=&mousepos;switchState(STATE_SHAPE_MENU);}
 void execgame()         {switchState(STATE_PLAY);}
 
 const struct {

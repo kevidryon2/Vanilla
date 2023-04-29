@@ -26,6 +26,7 @@ extern int main();
 
 void switchState(VanillaState st) {
 	state = st;
+  printf("Switching to state %d\n", st);
   if (state>=STATE_MAX) {
     printf("Error: Tried to switch to invalid state %d! ", st);
     switch (rand()%4) {

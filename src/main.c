@@ -21,6 +21,12 @@ int main() {
 			case STATE_MAINMENU: mainMenu(); break;
 			case STATE_EDITOR: editor(); break;
 			case STATE_SELECT_EDITOR: selecteditor(); break;
+			case STATE_CODE_MENU: code(); break;
+			case STATE_DATA_MENU: data(); break;
+			case STATE_DRAW_MENU: draw(); break;
+			case STATE_SOUND_MENU: sound(); break;
+			case STATE_SHAPE_MENU: shape(); break;
+			case STATE_PLAY: execgame(); break;
 		}
 		t++;
 		EndDrawing();
